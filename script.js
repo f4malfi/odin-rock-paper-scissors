@@ -2,8 +2,6 @@
 
 let humanScore = 0;
 let computerScore = 0;
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
 
 //This is the computer logic which randomizes it's choice
 
@@ -22,7 +20,6 @@ function getComputerChoice(){
     }
 };
 
-//let computerChoice = getComputerChoice();
 
 //Function to prompt the users choice
 
@@ -30,10 +27,10 @@ function getHumanChoice(){
      return prompt("rock, paper or scissors?");
  }
 
-//let humanChoice = getHumanChoice();
-// //Function to simulate 1 round
 
-function playRound(humanChoice, computerChoice){
+function playGame(){
+
+    function playRound(humanChoice, computerChoice){
     if (humanChoice.toLowerCase() === "rock" && computerChoice === "rock"){
         return ("Draw! Nobody wins... or you both win?")
     }
@@ -61,13 +58,33 @@ function playRound(humanChoice, computerChoice){
     else if (humanChoice.toLowerCase() === "paper" && computerChoice === "paper"){
         return ("Draw! Nobody wins... or you both win?")
     }
-};
+}
 
-const playRoundResult = (playRound (humanSelection, computerSelection))
-    if (playRoundResult.includes("You win")){
-         humanScore++;
-    } else if (playRoundResult.includes("You lose")){
-         computerScore++;
+    while (humanScore < 3 && computerScore < 3){
+        const humanSelection = getHumanChoice();
+        const computerSelection = getComputerChoice();
+
+        const playRoundResult = playRound(humanSelection, computerSelection);
+
+        console.log(playRoundResult);
+
+        if (playRoundResult.includes("You win")) {
+            humanScore++;
+        } else if (playRoundResult.includes("You lose")) {
+            computerScore++;
+        }
+
+        console.log(`Score: You ${humanScore} - ${computerScore}`);
     }
 
-console.log(playRound(humanSelection, computerSelection));
+
+
+        if (humanScore > computerScore)
+            return ("You defeated the computer!")
+        else if (computerScore > humanScore)
+            return ("You have been defeated by the computer!")
+        else {}
+
+}
+
+console.log(playGame ());
