@@ -1,32 +1,4 @@
-//Global Variables
-
-let humanScore = 0;
-let computerScore = 0;
-
-//This is the computer logic which randomizes it's choice
-
-function getComputerChoice(){
-    let max = 3;
-    let computerNumber = Math.floor(Math.random() * max);
-
-    if (computerNumber === 0){
-        return("rock")
-    }
-    else if (computerNumber === 1){
-        return ("scissors")
-    }
-    else if (computerNumber === 2){
-        return ("paper")
-    }
-};
-
-
-//Function to prompt the users choice
-
-function getHumanChoice(){
-     return prompt("rock, paper or scissors?");
- }
-
+//Game plays rock, paper, scissors a best of 5 rounds.
 
 function playGame(){
 
@@ -59,6 +31,7 @@ function playGame(){
         return ("Draw! Nobody wins... or you both win?")
     }
 }
+//Loop to play best of 5 rounds
 
     while (humanScore < 3 && computerScore < 3){
         const humanSelection = getHumanChoice();
@@ -85,6 +58,33 @@ function playGame(){
             return ("You have been defeated by the computer!")
         else {}
 
-}
+}//Global Variables
+
+let humanScore = 0;
+let computerScore = 0;
+
+//This is the computer logic which randomizes it's choice
+
+function getComputerChoice(){
+    let max = 3;
+    let computerNumber = Math.floor(Math.random() * max);
+
+    if (computerNumber === 0){
+        return("rock")
+    }
+    else if (computerNumber === 1){
+        return ("scissors")
+    }
+    else if (computerNumber === 2){
+        return ("paper")
+    }
+};
+
+
+//Function to prompt the users choice
+
+function getHumanChoice(){
+     return prompt("rock, paper or scissors?");
+ }
 
 console.log(playGame ());
