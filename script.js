@@ -1,4 +1,4 @@
-//Game plays rock, paper, scissors a best of 5 rounds.
+//Game plays rock, paper, scissors a best of 5 rounds!!!!
 
 function playGame(){
 
