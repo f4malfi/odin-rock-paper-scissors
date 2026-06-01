@@ -31,32 +31,33 @@ function playGame(){
         return ("Draw! Nobody wins... or you both win?")
     }
 }
+
 //Loop to play best of 5 rounds
 
-    while (humanScore < 3 && computerScore < 3){
-        const humanSelection = getHumanChoice();
-        const computerSelection = getComputerChoice();
+    // while (humanScore < 3 && computerScore < 3){
+    //     const humanSelection = getHumanChoice();
+    //     const computerSelection = getComputerChoice();
 
-        const playRoundResult = playRound(humanSelection, computerSelection);
+    //     const playRoundResult = playRound(humanSelection, computerSelection);
 
-        console.log(playRoundResult);
+    //     console.log(playRoundResult);
 
-        if (playRoundResult.includes("You win")) {
-            humanScore++;
-        } else if (playRoundResult.includes("You lose")) {
-            computerScore++;
-        }
+    //     if (playRoundResult.includes("You win")) {
+    //         humanScore++;
+    //     } else if (playRoundResult.includes("You lose")) {
+    //         computerScore++;
+    //     }
 
-        console.log(`Score: You ${humanScore} - ${computerScore}`);
-    }
+    //     console.log(`Score: You ${humanScore} - ${computerScore}`);
+    // }
 
 
 
-        if (humanScore > computerScore)
-            return ("You defeated the computer!")
-        else if (computerScore > humanScore)
-            return ("You have been defeated by the computer!")
-        else {}
+    //     if (humanScore > computerScore)
+    //         return ("You defeated the computer!")
+    //     else if (computerScore > humanScore)
+    //         return ("You have been defeated by the computer!")
+    //     else {}
 
 }//Global Variables
 
@@ -89,4 +90,22 @@ function getHumanChoice(){
 
 console.log(playGame ());
 
-//Testing code change for new repo
+
+const rockBtn = document.querySelector(`#rockBtn`);
+const paperBtn = document.querySelector(`#paperBtn`);
+const scissorsBtn = document.querySelector(`#scissorsBtn`);
+
+rockBtn.addEventListener(`click`, function (event){
+    humanChoice = `rock`;
+    playGame();
+});
+
+paperBtn.addEventListener(`click`, function (event){
+    humanChoice = `paper`;
+    playGame();
+});
+
+scissorsBtn.addEventListener(`click`, function (event){
+    humanChoice = `scissors`;
+    playGame();
+});
