@@ -1,8 +1,14 @@
 //Game plays rock, paper, scissors.
 
+//Global Variables
 const rockBtn = document.querySelector(`#rockBtn`);
 const paperBtn = document.querySelector(`#paperBtn`);
 const scissorsBtn = document.querySelector(`#scissorsBtn`);
+let div1 = document.querySelector(`#div1`);
+let div2 = document.querySelector(`#div2`);
+let div3 = document.querySelector(`#div3`);
+let humanScore = 0;
+let computerScore = 0;
 
 
 rockBtn.addEventListener(`click`, function (event){
@@ -56,12 +62,12 @@ function playGame(){
 
 
 
-    while (humanScore < 100 && computerScore < 100){
+    //while (humanScore < 100 && computerScore < 100){
        const humanSelection = humanChoice;
        const computerSelection = getComputerChoice();
        const playRoundResult = playRound(humanSelection, computerSelection);
 
-        console.log(playRoundResult);
+        div1.textContent = playRoundResult;
 
       if (playRoundResult.includes("You win")) {
         humanScore++;
@@ -69,22 +75,19 @@ function playGame(){
        computerScore++;
    }
 
-   console.log(`Score: You ${humanScore} - ${computerScore}`);
-}
+   div2.textContent = `Score: You ${humanScore} - ${computerScore}`;
+//}
 
 
 
-    if (humanScore > computerScore)
-       return ("You defeated the computer!")
-    else if (computerScore > humanScore)
-        return ("You have been defeated by the computer!")
+    if (humanScore === 5 && computerScore <= 4)
+       div3.textContent = "You defeated the computer!"
+    else if (computerScore === 5 && humanScore <= 4)
+        div3.textContent = "You have been defeated by the computer!"
    else {}
 
 }
-//Global Variables
 
-let humanScore = 0;
-let computerScore = 0;
 
 //This is the computer logic which randomizes it's choice
 
@@ -104,7 +107,7 @@ function getComputerChoice(){
 };
 
 
-//Function to prompt the users choice
+//Function to prompt the users choice with no buttons
 
 //function getHumanChoice(){
      //return prompt("rock, paper or scissors?");
